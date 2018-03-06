@@ -17,7 +17,8 @@
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/strix"
-        tools:layout_editor_absoluteY="81dp" />
+        tools:layout_editor_absoluteY="81dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/title"
@@ -74,7 +75,8 @@
         android:textColor="#473000"
         android:textSize="24sp"
         app:layout_constraintTop_toBottomOf="@+id/strix"
-        tools:layout_editor_absoluteX="148dp" />
+        tools:layout_editor_absoluteX="148dp"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/play_back_b"
@@ -86,6 +88,7 @@
         android:textColor="#473000"
         android:textSize="24sp"
         app:layout_constraintTop_toBottomOf="@+id/play_play_b"
-        tools:layout_editor_absoluteX="148dp" />
+        tools:layout_editor_absoluteX="148dp"
+        tools:ignore="MissingConstraints" />
 
 </android.support.constraint.ConstraintLayout>
