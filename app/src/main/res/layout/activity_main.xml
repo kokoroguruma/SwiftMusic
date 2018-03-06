@@ -50,9 +50,9 @@
         android:layout_width="wrap_content"
         android:layout_height="65dp"
         android:layout_marginBottom="16dp"
-        android:background="#ffdd96"
+        android:background="#ffe07c"
         android:text="検索"
-        android:textColor="#775100"
+        android:textColor="#473000"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         tools:layout_editor_absoluteX="148dp" />
@@ -61,18 +61,11 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="65dp"
-        android:background="#ffdd96"
+        android:background="#ffe07c"
         android:text="全部"
-        android:textColor="#775100"
+        android:textColor="#473000"
         android:textSize="24sp"
         tools:layout_editor_absoluteX="148dp"
         tools:layout_editor_absoluteY="430dp" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="444dp" />
 </android.support.constraint.ConstraintLayout>

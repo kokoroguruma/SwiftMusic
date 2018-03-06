@@ -10,13 +10,13 @@
         android:id="@+id/strix"
         android:layout_width="235dp"
         android:layout_height="220dp"
+        android:layout_marginBottom="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title"
         app:srcCompat="@drawable/strix" />
 
     <TextView
@@ -34,16 +34,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.142" />
+        app:layout_constraintVertical_bias="0.333" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="65dp"
         android:layout_marginBottom="16dp"
-        android:background="#ffdd96"
-        android:text="検索"
-        android:textColor="#775100"
+        android:background="#ffe07c"
+        android:text="再生"
+        android:textColor="#473000"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         tools:layout_editor_absoluteX="148dp" />
@@ -52,11 +52,38 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="65dp"
-        android:layout_marginBottom="32dp"
-        android:background="#ffdd96"
-        android:text="全部"
-        android:textColor="#775100"
+        android:background="#ffe07c"
+        android:text="戻る"
+        android:textColor="#473000"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="148dp" />
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="414dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="65dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="#ffe07c"
+        android:text="先頭"
+        android:textColor="#473000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="65dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="#ffe07c"
+        android:text="停止"
+        android:textColor="#473000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintTop_toTopOf="@+id/button" />
 </android.support.constraint.ConstraintLayout>
