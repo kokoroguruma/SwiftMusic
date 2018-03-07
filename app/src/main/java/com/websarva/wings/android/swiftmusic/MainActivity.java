@@ -14,13 +14,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //全部ボタンの画面遷移
-    public void allButtonTapped(View view){
+    public void mainAllClick(View view){
         Intent intent = new Intent(this,AllActivity.class);
         startActivity(intent);
     }
 
     //検索ボタンの画面遷移
-    public void searchButtonTapped(View view){
+    public void mainSearchClick(View view){
         Intent intent = new Intent(this, SearchActivity.class);
         startActivity(intent);
     }
