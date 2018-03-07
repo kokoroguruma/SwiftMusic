@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.websarva.wings.android.swiftmusic.MainActivity">
+    android:background="#ffffff"
+    tools:context="com.websarva.wings.android.swiftmusic.PlayActivity">
 
     <ImageView
         android:id="@+id/strix"
@@ -13,11 +14,14 @@
         android:layout_marginBottom="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/play_head_b"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/strix" />
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:srcCompat="@drawable/strix"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/title"
@@ -26,7 +30,6 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:text="フクロウ博士の音響研究所"
         android:textColor="#473000"
         android:textSize="30sp"
@@ -37,30 +40,7 @@
         app:layout_constraintVertical_bias="0.333" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="65dp"
-        android:layout_marginBottom="16dp"
-        android:background="#ffe07c"
-        android:text="再生"
-        android:textColor="#473000"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        tools:layout_editor_absoluteX="148dp" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="65dp"
-        android:background="#ffe07c"
-        android:text="戻る"
-        android:textColor="#473000"
-        android:textSize="24sp"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="414dp" />
-
-    <Button
-        android:id="@+id/button3"
+        android:id="@+id/play_head_b"
         android:layout_width="wrap_content"
         android:layout_height="65dp"
         android:layout_marginEnd="8dp"
@@ -69,12 +49,12 @@
         android:text="先頭"
         android:textColor="#473000"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintEnd_toStartOf="@+id/play_play_b"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button" />
+        app:layout_constraintTop_toTopOf="@+id/play_play_b" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/play_stop_b"
         android:layout_width="wrap_content"
         android:layout_height="65dp"
         android:layout_marginEnd="8dp"
@@ -84,6 +64,41 @@
         android:textColor="#473000"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toTopOf="@+id/button" />
+        app:layout_constraintStart_toEndOf="@+id/play_play_b"
+        app:layout_constraintTop_toTopOf="@+id/play_play_b" />
+
+    <Button
+        android:id="@+id/play_play_b"
+        android:layout_width="wrap_content"
+        android:layout_height="65dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:background="#ffe07c"
+        android:text="再生"
+        android:textColor="#473000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/strix"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/play_back_b"
+        android:layout_width="wrap_content"
+        android:layout_height="65dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:background="#ffe07c"
+        android:text="戻る"
+        android:textColor="#473000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/play_play_b"
+        tools:ignore="MissingConstraints" />
+
 </android.support.constraint.ConstraintLayout>
