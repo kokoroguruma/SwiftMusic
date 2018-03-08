@@ -17,7 +17,7 @@
         android:layout_marginTop="8dp"
         android:text="フクロウ博士の音響研究所"
         android:textColor="#473000"
-        android:textSize="28sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/strix"
         app:layout_constraintEnd_toEndOf="parent"
