@@ -40,7 +40,7 @@ public class AllActivity extends AppCompatActivity {
 
         lvSound.setAdapter(adapter);
 
-       // lvSound.setOnItemClickListener(new allNameClick());
+        lvSound.setOnItemClickListener(new allNameClick());
 
     }
 
@@ -49,6 +49,7 @@ public class AllActivity extends AppCompatActivity {
         @Override
         public void onItemClick(AdapterView<?>parent, View view, int position, long id){
             Intent intent = new Intent(AllActivity.this, PlayActivity.class);
+
             startActivity(intent);
         }
     }
