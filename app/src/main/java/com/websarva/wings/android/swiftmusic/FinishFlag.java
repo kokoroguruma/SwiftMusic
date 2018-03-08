@@ -18,7 +18,7 @@ package com.websarva.wings.android.swiftmusic;
  */
 
 public class FinishFlag {
-    private boolean flag;
+    private boolean flag = false;
 
     public boolean isFlag() {
         return flag;
