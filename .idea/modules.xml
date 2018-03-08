@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SwiftMusic.iml" filepath="$PROJECT_DIR$/SwiftMusic.iml" />
-      <module fileurl="file://$PROJECT_DIR$/SwiftMusic-1.iml" filepath="$PROJECT_DIR$/SwiftMusic-1.iml" />
+      <module fileurl="file://C:\Users\swift01\Desktop\hotta\AndroidStudioProjects\SwiftMusic\SwiftMusic-1.iml" filepath="C:\Users\swift01\Desktop\hotta\AndroidStudioProjects\SwiftMusic\SwiftMusic-1.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
