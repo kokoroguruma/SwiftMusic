@@ -99,6 +99,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:background="#ffe07c"
+        android:onClick="playBackClick"
         android:text="戻る"
         android:textColor="#473000"
         android:textSize="24sp"
