@@ -16,10 +16,8 @@ public class PlayActivity extends AppCompatActivity {
 
     //戻るボタンによる画面遷移
     public void playBackClick(View view){
-
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-
     }
 
 }
