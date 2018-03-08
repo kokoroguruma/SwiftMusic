@@ -62,8 +62,13 @@ public class AllActivity extends AppCompatActivity {
                 Log.v("tag", String.format("onItemClick: %s", dateList.get(position)));
                 Log.v("tag", String.format("onItemClick: %s", get_id));
 
+                //mp3を取得
                 dateUrl = put.url(dateList.get(position));
                 Log.v("tag", String.format("onItemClick: %s", dateUrl));
+
+                Intent intent = new Intent(AllActivity.this, PlayActivity.class);
+                intent.putExtra("URL:", dateUrl);
+                startActivity(intent);
 
             }
         });
@@ -75,6 +80,7 @@ public class AllActivity extends AppCompatActivity {
         @Override
         public void onItemClick(AdapterView<?>parent, View view, int position, long id){
             Intent intent = new Intent(AllActivity.this, PlayActivity.class);
+            intent.putExtra("URL:", dateUrl);
             startActivity(intent);
         }
     }
