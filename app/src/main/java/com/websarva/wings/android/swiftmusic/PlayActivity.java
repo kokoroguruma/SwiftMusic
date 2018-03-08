@@ -18,6 +18,7 @@ public class PlayActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         Url = intent.getStringExtra("URL");
+        
 
         //一時的に表示
         TextView textView = findViewById(R.id.textView);
