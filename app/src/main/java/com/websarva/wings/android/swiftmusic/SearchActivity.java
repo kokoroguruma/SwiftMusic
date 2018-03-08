@@ -14,7 +14,7 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        ListView lvSound = (ListView)findViewById(R.id.search_list);
+        ListView lvSound = (ListView)findViewById(R.id.searchList);
 
         lvSound.setOnItemClickListener(new SearchActivity.searchNameClick());
     }

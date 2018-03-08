@@ -7,10 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
 
 public class AllActivity extends AppCompatActivity {
 
@@ -19,7 +16,7 @@ public class AllActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all);
 
-        ListView lvSound = (ListView)findViewById(R.id.all_list);
+        ListView lvSound = (ListView)findViewById(R.id.allNameList);
 
         lvSound.setOnItemClickListener(new allNameClick());
 
