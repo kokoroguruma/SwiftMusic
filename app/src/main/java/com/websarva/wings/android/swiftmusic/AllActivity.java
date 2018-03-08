@@ -67,7 +67,7 @@ public class AllActivity extends AppCompatActivity {
                 Log.v("tag", String.format("onItemClick: %s", dateUrl));
 
                 Intent intent = new Intent(AllActivity.this, PlayActivity.class);
-                intent.putExtra("URL:", dateUrl);
+                intent.putExtra("URL", dateUrl);
                 startActivity(intent);
 
             }
