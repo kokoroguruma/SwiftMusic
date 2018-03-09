@@ -100,7 +100,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:background="#ffe07c"
-        android:onClick="playBackClick"
         android:text="戻る"
         android:textColor="#473000"
         android:textSize="24sp"
@@ -110,13 +109,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/play_play_b"
         tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="236dp" />
+    
 
 </android.support.constraint.ConstraintLayout>
