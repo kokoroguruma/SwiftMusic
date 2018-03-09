@@ -4,6 +4,7 @@
     <string name="app_name">SwiftMusic</string>
 
     <string-array name="sound_sample">
+        <item>打ち込みデータ</item>
         <item>街の道路</item><item>大都会の道路</item><item>交差点</item><item>駅前広場</item>
         <item>静かな住宅街</item><item>夜の繁華街</item><item>雨の街の道路</item><item>工業地帯</item>
         <item>雨１</item><item>雨２</item><item>雷雨</item><item>動物園</item><item>公園１</item>
