@@ -33,7 +33,9 @@ public class AllActivity extends AppCompatActivity {
         put = (SwiftMusicApplication) getApplication();
 
         //全てのデータを取得
+        //""の中に文字を入れると、その条件で指定して検索
         dateList = put.allsearch("");
+        
 
         //データが取れているかを確認
         for (String s : dateList) {
