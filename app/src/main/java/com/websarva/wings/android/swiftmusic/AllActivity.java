@@ -30,6 +30,8 @@ public class AllActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all);
 
+        //グローバル変数
+        //どのActivityからでも参照できる、グローバルな変数。getApplication()を使って参照する。
         put = (SwiftMusicApplication) getApplication();
 
         //全てのデータを取得
