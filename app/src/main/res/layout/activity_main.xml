@@ -11,11 +11,9 @@
         android:id="@+id/strix"
         android:layout_width="235dp"
         android:layout_height="220dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="60dp"
-        app:layout_constraintBottom_toTopOf="@+id/main_search_w"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,21 +38,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <SearchView
-        android:id="@+id/main_search_w"
-        android:layout_width="315dp"
-        android:layout_height="42dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="#fffeea"
-        app:layout_constraintBottom_toTopOf="@+id/main_search_b"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/strix"
-        tools:ignore="MissingConstraints" />
-
     <Button
         android:id="@+id/main_search_b"
         android:layout_width="wrap_content"
@@ -72,7 +55,7 @@
         app:layout_constraintBottom_toTopOf="@+id/main_all_b"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_search_w"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -93,6 +76,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/main_search_b"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="273dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="#ffe799"
+        android:text="ここに言葉を入れるのじゃ"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/main_search_b"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/strix"
         tools:ignore="MissingConstraints" />
 
 </android.support.constraint.ConstraintLayout>
