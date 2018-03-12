@@ -41,7 +41,7 @@ public class PlayMusic extends PlayActivity{
             _player.pause();
         }
     }
-    public void pmDestory() {
+    public void pmDestroy() {
         if (_player.isPlaying()) {
             _player.stop();
         }

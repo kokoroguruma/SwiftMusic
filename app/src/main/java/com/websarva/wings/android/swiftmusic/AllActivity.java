@@ -16,7 +16,7 @@ import java.util.List;
 
 public class AllActivity extends AppCompatActivity {
 
-    public static FinishFlag mflag;
+    public static FinishFlag mflag = new FinishFlag();
 
     SwiftMusicApplication put;
 

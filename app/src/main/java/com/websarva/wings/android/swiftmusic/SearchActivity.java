@@ -14,7 +14,7 @@ import java.util.List;
 
 public class SearchActivity extends AppCompatActivity {
 
-    public static FinishFlag mflag;
+    public static FinishFlag mflag = new FinishFlag();
 
     SwiftMusicApplication put;
 

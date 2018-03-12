@@ -15,8 +15,9 @@ public class PlayActivity extends AppCompatActivity {
     private Button _btStop;
     private Button _btHead;
     private Button _btBack;
-    public PlayMusic playMusic;
+    private PlayMusic playMusic;
     private String url;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,7 @@ public class PlayActivity extends AppCompatActivity {
         url = intent.getStringExtra("URL");
         //   String url = intent.getStringExtra("url");
 
-       // url = "https://soundeffect-lab.info/sound/environment/mp3/intersection1.mp3";  //仮URL
+        // url = "https://soundeffect-lab.info/sound/environment/mp3/intersection1.mp3";  //仮URL
         System.out.println(url);
         _btHead = findViewById(R.id.play_head_b);
         _btStop = findViewById(R.id.play_stop_b);
@@ -42,7 +43,7 @@ public class PlayActivity extends AppCompatActivity {
 
     }
 
-    public void playCreatePlayMusic(String url){ //urlを引っ張る　再生準備
+    public void playCreatePlayMusic(String url) { //urlを引っ張る　再生準備
         System.out.println(url);
         playMusic = new PlayMusic(url);
         //  System.out.println(url);
@@ -52,40 +53,50 @@ public class PlayActivity extends AppCompatActivity {
 
 
     }
-    public void playPauseClick(){//停止ボタン(一時停止) メソッド
-        _btStop.setOnClickListener(new View.OnClickListener(){
+
+    public void playPauseClick() {//停止ボタン(一時停止) メソッド
+        _btStop.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 playMusic.pmPauseing();
             }
         });
     }
-    public void playBackClick(){ //一時的な仮遷移　
-        _btBack.setOnClickListener(new View.OnClickListener() {
+
+    public void playBackClick() { //一時的な仮遷移　
+
+        _btBack.setOnClickListener(new View.OnClickListener()
+                        {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PlayActivity.this,MainActivity.class);//画面遷移　アクティビティ先
+                //Intent intent = new Intent(PlayActivity.this, MainActivity.class);//画面遷移　アクティビティ先
+                //intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);     //今までの破棄
+                if(AllActivity.mflag != null){
+                    AllActivity.mflag.setFlag(true);
 
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);     //今までの破棄
-                startActivity(intent);
+                }
+                if (SearchActivity.mflag != null){
+                    SearchActivity.mflag.setFlag(true);
+                }
+                finish();
+              //  startActivity(intent);
             }
         });
     }
-    public void playStopClick(){ //　先頭ボタンメソッド
+
+    public void playStopClick() { //　先頭ボタンメソッド
         _btHead.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 playMusic.pmStoping();
             }
         });
     }
-    public void playPlayClick(){ //　再生ボタンメソッド
-        _btPlay.setOnClickListener(new View.OnClickListener(){
+
+    public void playPlayClick() { //　再生ボタンメソッド
+        _btPlay.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 playMusic.pmPlaying();
             }
         });
@@ -94,6 +105,6 @@ public class PlayActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() { //　アクティビティ終了破壊　メソッド
         super.onDestroy();
-        playMusic.pmDestory();
+        playMusic.pmDestroy();
     }
 }
