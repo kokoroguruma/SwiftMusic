@@ -33,37 +33,6 @@ public class AllActivity extends AppCompatActivity {
         allNameGet();
         allList();
         allNameClick();
-        allUrlIntent();
-
-
-        ListView lvSound = (ListView)findViewById(R.id.allNameList);
-
-        lvSound.setOnItemClickListener(new allNameClick());
-
-        lvSound.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView parent, View view, int position, long id) {
-                //クリックされたものを取得
-                String get_parent = (String) parent.getClass().getSimpleName();
-                String get_position = String.valueOf(position);
-                dateList.get(position);
-                String get_id = String.valueOf(id);
-                //Log出力
-                Log.v("tag", String.format("onItemClick: %s", get_parent));
-                Log.v("tag", String.format("onItemClick: %s", get_position));
-                Log.v("tag", String.format("onItemClick: %s", dateList.get(position)));
-                Log.v("tag", String.format("onItemClick: %s", get_id));
-
-                //mp3を取得
-                dateUrl = put.url(dateList.get(position));
-                Log.v("tag", String.format("onItemClick: %s", dateUrl));
-
-                Intent intent = new Intent(AllActivity.this, PlayActivity.class);
-                intent.putExtra("URL", dateUrl);
-                startActivity(intent);
-
-            }
-        });
 
     }
 
@@ -79,12 +48,10 @@ public class AllActivity extends AppCompatActivity {
         //""の中に文字を入れると、その条件で指定して検索
         dateList = put.allsearch("");
 
-
         //データが取れているかを確認
         for (String s : dateList) {
             System.out.println(s);
         }
-
     }
 
     /**
@@ -106,8 +73,6 @@ public class AllActivity extends AppCompatActivity {
 
         ListView lvSound = (ListView)findViewById(R.id.allNameList);
 
-        lvSound.setOnItemClickListener(new allNameClick());
-
         lvSound.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View view, int position, long id) {
@@ -126,30 +91,28 @@ public class AllActivity extends AppCompatActivity {
                 dateUrl = put.url(dateList.get(position));
                 Log.v("tag", String.format("onItemClick: %s", dateUrl));
 
+                allUrlIntent();
 
 
             }
         });
-
     }
 
     /**
-     * URLをPlayActivityに引き渡す
+     * URLをintentで引き渡す
      */
     public void allUrlIntent(){
-
+                Intent intent = new Intent(AllActivity.this, PlayActivity.class);
+                System.out.println(dateUrl);
+                intent.putExtra("URL", dateUrl);
+                startActivity(intent);
     }
 
-    //名前をクリックした時に画面遷移
-    private class allNameClick implements AdapterView.OnItemClickListener{
-        @Override
-        public void onItemClick(AdapterView<?>parent, View view, int position, long id){
-            Intent intent = new Intent(AllActivity.this, PlayActivity.class);
-            intent.putExtra("FROM AllActivity URL:", dateUrl);
-            startActivity(intent);
-        }
-    }
 
+    /**
+     * PlayActivityで戻るボタンが押されたら、このメソッドを使って、
+     * AllActivityを終了させる
+     */
     @Override
     public void onRestart(){
         super.onRestart();
@@ -157,7 +120,5 @@ public class AllActivity extends AppCompatActivity {
             finish();
         }
     }
-
-
 
 }

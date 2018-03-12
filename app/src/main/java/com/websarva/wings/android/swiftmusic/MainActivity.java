@@ -67,16 +67,17 @@ public class MainActivity extends AppCompatActivity {
 
 
         Intent intent = new Intent(this, SearchActivity.class);
-        if(editText.getText() != null){
+        if(editText.getText().length() != 0){
 
             String str = editText.getText().toString();
             intent.putExtra("dateStr", str);
             editText.setText("");
+            startActivity(intent);
 
         }
         //仮データを送る
         /*intent.putExtra("dateStr2", "な");*/
-        startActivity(intent);
+
     }
 
 }
