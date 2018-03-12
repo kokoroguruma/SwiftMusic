@@ -30,6 +30,7 @@ public class PlayActivity extends AppCompatActivity {
 
         // url = "https://soundeffect-lab.info/sound/environment/mp3/intersection1.mp3";  //仮URL
         System.out.println(url);
+
         _btHead = findViewById(R.id.play_head_b);
         _btStop = findViewById(R.id.play_stop_b);
         _btPlay = findViewById(R.id.play_play_b);
