@@ -55,7 +55,7 @@ public class PlayActivity extends AppCompatActivity {
 
     }
 
-    public void playPauseClick() {//停止ボタン(一時停止) メソッド
+    public void playPauseClick() {
         _btStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,14 +64,12 @@ public class PlayActivity extends AppCompatActivity {
         });
     }
 
-    public void playBackClick() { //一時的な仮遷移　
+    public void playBackClick() { 
 
         _btBack.setOnClickListener(new View.OnClickListener()
                         {
             @Override
             public void onClick(View view) {
-                //Intent intent = new Intent(PlayActivity.this, MainActivity.class);//画面遷移　アクティビティ先
-                //intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);     //今までの破棄
                 if(AllActivity.mflag != null){
                     AllActivity.mflag.setFlag(true);
 
@@ -80,7 +78,6 @@ public class PlayActivity extends AppCompatActivity {
                     SearchActivity.mflag.setFlag(true);
                 }
                 finish();
-              //  startActivity(intent);
             }
         });
     }
