@@ -27,7 +27,7 @@ public class PlayActivity extends AppCompatActivity {
         url = intent.getStringExtra("URL");
         //   String url = intent.getStringExtra("url");
 
-       // url = "https://soundeffect-lab.info/sound/environment/mp3/intersection1.mp3";  //仮URL
+         //url = "https://soundeffect-lab.info/sound/voice/mp3/game/healer-special3.mp3";  //仮URL
         System.out.println(url);
         _btHead = findViewById(R.id.play_head_b);
         _btStop = findViewById(R.id.play_stop_b);
@@ -42,6 +42,10 @@ public class PlayActivity extends AppCompatActivity {
 
     }
 
+    /**
+     *
+     * @param url
+     */
     public void playCreatePlayMusic(String url){ //urlを引っ張る　再生準備
         System.out.println(url);
         playMusic = new PlayMusic(url);
@@ -49,9 +53,9 @@ public class PlayActivity extends AppCompatActivity {
         _btHead.setEnabled(true);
         _btPlay.setEnabled(true);
         _btStop.setEnabled(true);
-
-
     }
+
+
     public void playPauseClick(){//停止ボタン(一時停止) メソッド
         _btStop.setOnClickListener(new View.OnClickListener(){
             @Override

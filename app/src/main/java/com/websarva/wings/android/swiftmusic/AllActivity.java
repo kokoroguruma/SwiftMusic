@@ -16,7 +16,7 @@ import java.util.List;
 
 public class AllActivity extends AppCompatActivity {
 
-    public static FinishFlag mflag;
+    public static FinishFlag mflag = new FinishFlag();
 
     SwiftMusicApplication put;
 
@@ -30,6 +30,16 @@ public class AllActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all);
 
+        allNameGet();
+        allList();
+        allNameClick();
+
+    }
+
+    /**
+     * データベースから名前のリストデータを受け取る
+     */
+    public void allNameGet(){
         //グローバル変数
         //どのActivityからでも参照できる、グローバルな変数。getApplication()を使って参照する。
         put = (SwiftMusicApplication) getApplication();
@@ -37,20 +47,31 @@ public class AllActivity extends AppCompatActivity {
         //全てのデータを取得
         //""の中に文字を入れると、その条件で指定して検索
         dateList = put.allsearch("");
-        
 
         //データが取れているかを確認
         for (String s : dateList) {
             System.out.println(s);
         }
+    }
 
+    /**
+     * 受け取ったデータをリスト化して表示
+     */
+    public void allList(){
         ListView lvSound = (ListView)findViewById(R.id.allNameList);
 
         ListAdapter adapter = new ArrayAdapter<String >(this, android.R.layout.simple_list_item_1, dateList);
 
         lvSound.setAdapter(adapter);
 
-        lvSound.setOnItemClickListener(new allNameClick());
+    }
+
+    /**
+     * 名前をクリックされたらDBに名前を送り、戻り値としてURLを貰う
+     */
+    public void allNameClick(){
+
+        ListView lvSound = (ListView)findViewById(R.id.allNameList);
 
         lvSound.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -70,25 +91,29 @@ public class AllActivity extends AppCompatActivity {
                 dateUrl = put.url(dateList.get(position));
                 Log.v("tag", String.format("onItemClick: %s", dateUrl));
 
-                Intent intent = new Intent(AllActivity.this, PlayActivity.class);
-                intent.putExtra("URL", dateUrl);
-                startActivity(intent);
+                allUrlIntent();
+
 
             }
         });
-
     }
 
-    //名前をクリックした時に画面遷移
-    private class allNameClick implements AdapterView.OnItemClickListener{
-        @Override
-        public void onItemClick(AdapterView<?>parent, View view, int position, long id){
-            Intent intent = new Intent(AllActivity.this, PlayActivity.class);
-            intent.putExtra("URL:", dateUrl);
-            startActivity(intent);
-        }
+
+    /**
+     * URLをintentで引き渡す
+     */
+    public void allUrlIntent(){
+                Intent intent = new Intent(AllActivity.this, PlayActivity.class);
+                System.out.println(dateUrl);
+                intent.putExtra("URL", dateUrl);
+                startActivity(intent);
     }
 
+
+    /**
+     * PlayActivityで戻るボタンが押されたら、このメソッドを使って、
+     * AllActivityを終了させる
+     */
     @Override
     public void onRestart(){
         super.onRestart();
@@ -96,7 +121,5 @@ public class AllActivity extends AppCompatActivity {
             finish();
         }
     }
-
-
 
 }

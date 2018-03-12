@@ -21,11 +21,14 @@
         </activity>
         <activity android:name=".SearchActivity" />
         <activity android:name=".AllActivity" />
-        <activity android:name=".PlayActivity"></activity>
+        <activity android:name=".PlayActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <activity android:name=".PlayMusicActivity" />
+        <activity android:name=".PlayMusic"></activity>
     </application>
 
 </manifest>
