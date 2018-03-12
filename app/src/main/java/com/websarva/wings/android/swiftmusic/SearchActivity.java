@@ -12,6 +12,7 @@ import android.widget.ListView;
 
 import java.util.List;
 
+
 public class SearchActivity extends AppCompatActivity {
 
     public static FinishFlag mflag = new FinishFlag();
@@ -29,7 +30,15 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        put = (SwiftMusicApplication)getApplication();
+        searchNameGet();
+        searchList();
+        searchNameClick();
+
+    }
+
+    public void searchNameGet() {
+
+        put = (SwiftMusicApplication) getApplication();
 
         //dateDayoにMainActivityからのデータを格納
         //左下の実行ボタンを押すと、ログの中にデータを確認できる
@@ -42,19 +51,30 @@ public class SearchActivity extends AppCompatActivity {
         dateList = put.allsearch(dateStr);
 
         //データが取れているかを確認
-        for(String s : dateList){
+        for (String s : dateList) {
             System.out.println(s);
         }
+    }
 
+    /**
+     * 受け取ったデータをリスト化して表示
+     */
+    public void searchList(){
         ListView lvSound = (ListView)findViewById(R.id.searchList);
 
-        ListAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dateList);
+        ListAdapter adapter = new ArrayAdapter<String >(this, android.R.layout.simple_list_item_1, dateList);
 
         lvSound.setAdapter(adapter);
 
-        lvSound.setOnItemClickListener(new SearchActivity.searchNameClick());
+    }
 
-        //リスト上でクリックされた名前に、付随したデータを取得
+    /**
+     * 名前をクリックされたらDBに名前を送り、戻り値としてURLを貰う
+     */
+    public void searchNameClick(){
+
+        ListView lvSound = (ListView)findViewById(R.id.searchList);
+
         lvSound.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View view, int position, long id) {
@@ -63,37 +83,38 @@ public class SearchActivity extends AppCompatActivity {
                 String get_position = String.valueOf(position);
                 dateList.get(position);
                 String get_id = String.valueOf(id);
-                //log出力
+                //Log出力
                 Log.v("tag", String.format("onItemClick: %s", get_parent));
                 Log.v("tag", String.format("onItemClick: %s", get_position));
                 Log.v("tag", String.format("onItemClick: %s", dateList.get(position)));
                 Log.v("tag", String.format("onItemClick: %s", get_id));
 
                 //mp3を取得
-                //urlメソッドを使っている
                 dateUrl = put.url(dateList.get(position));
                 Log.v("tag", String.format("onItemClick: %s", dateUrl));
 
-                //URLデータを保持しつつ、PlayActivityに画面遷移
-                Intent intent = new Intent(SearchActivity.this, PlayActivity.class);
-                intent.putExtra("URL", dateUrl);
-                startActivity(intent);
+                searchUrlIntent();
+
+
             }
         });
-
-
     }
 
-    //名前をクリックされた時に画面遷移
-    private class searchNameClick implements AdapterView.OnItemClickListener{
-        @Override
-        public void onItemClick(AdapterView<?>parent, View view, int position, long id){
-            Intent intent = new Intent(SearchActivity.this, PlayActivity.class);
-            intent.putExtra("URL:", dateUrl);
-            startActivity(intent);
-        }
+    /**
+     * URLをintentで引き渡す
+     */
+    public void searchUrlIntent(){
+        Intent intent = new Intent(SearchActivity.this, PlayActivity.class);
+        System.out.println(dateUrl);
+        intent.putExtra("URL", dateUrl);
+        startActivity(intent);
     }
 
+
+    /**
+     * PlayActivityで戻るボタンが押されたら、このメソッドを使って、
+     * AllActivityを終了させる
+     */
     @Override
     public void onRestart(){
         super.onRestart();
@@ -101,5 +122,6 @@ public class SearchActivity extends AppCompatActivity {
             finish();
         }
     }
+
 
 }

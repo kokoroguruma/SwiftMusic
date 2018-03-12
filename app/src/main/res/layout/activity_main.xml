@@ -87,7 +87,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="#ffe799"
-        android:text="ここに言葉を入れるのじゃ"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/main_search_b"

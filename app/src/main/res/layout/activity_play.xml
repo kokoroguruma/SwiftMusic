@@ -80,6 +80,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:background="#ffe07c"
+        android:onClick="playOnClick"
         android:text="再生"
         android:textColor="#473000"
         android:textSize="24sp"
