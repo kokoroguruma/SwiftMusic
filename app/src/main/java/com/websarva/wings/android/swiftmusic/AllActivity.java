@@ -98,6 +98,7 @@ public class AllActivity extends AppCompatActivity {
         });
     }
 
+
     /**
      * URLをintentで引き渡す
      */
