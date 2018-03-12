@@ -16,7 +16,7 @@ import java.util.List;
 
 public class AllActivity extends AppCompatActivity {
 
-    public static FinishFlag mflag;
+    public static FinishFlag mflag = new FinishFlag();
 
     SwiftMusicApplication put;
 
@@ -30,25 +30,13 @@ public class AllActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all);
 
-        //グローバル変数
-        //どのActivityからでも参照できる、グローバルな変数。getApplication()を使って参照する。
-        put = (SwiftMusicApplication) getApplication();
+        allNameGet();
+        allList();
+        allNameClick();
+        allUrlIntent();
 
-        //全てのデータを取得
-        //""の中に文字を入れると、その条件で指定して検索
-        dateList = put.allsearch("");
-        
-
-        //データが取れているかを確認
-        for (String s : dateList) {
-            System.out.println(s);
-        }
 
         ListView lvSound = (ListView)findViewById(R.id.allNameList);
-
-        ListAdapter adapter = new ArrayAdapter<String >(this, android.R.layout.simple_list_item_1, dateList);
-
-        lvSound.setAdapter(adapter);
 
         lvSound.setOnItemClickListener(new allNameClick());
 
@@ -79,12 +67,85 @@ public class AllActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * データベースから名前のリストデータを受け取る
+     */
+    public void allNameGet(){
+        //グローバル変数
+        //どのActivityからでも参照できる、グローバルな変数。getApplication()を使って参照する。
+        put = (SwiftMusicApplication) getApplication();
+
+        //全てのデータを取得
+        //""の中に文字を入れると、その条件で指定して検索
+        dateList = put.allsearch("");
+
+
+        //データが取れているかを確認
+        for (String s : dateList) {
+            System.out.println(s);
+        }
+
+    }
+
+    /**
+     * 受け取ったデータをリスト化して表示
+     */
+    public void allList(){
+        ListView lvSound = (ListView)findViewById(R.id.allNameList);
+
+        ListAdapter adapter = new ArrayAdapter<String >(this, android.R.layout.simple_list_item_1, dateList);
+
+        lvSound.setAdapter(adapter);
+
+    }
+
+    /**
+     * 名前をクリックされたらDBに名前を送り、戻り値としてURLを貰う
+     */
+    public void allNameClick(){
+
+        ListView lvSound = (ListView)findViewById(R.id.allNameList);
+
+        lvSound.setOnItemClickListener(new allNameClick());
+
+        lvSound.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView parent, View view, int position, long id) {
+                //クリックされたものを取得
+                String get_parent = (String) parent.getClass().getSimpleName();
+                String get_position = String.valueOf(position);
+                dateList.get(position);
+                String get_id = String.valueOf(id);
+                //Log出力
+                Log.v("tag", String.format("onItemClick: %s", get_parent));
+                Log.v("tag", String.format("onItemClick: %s", get_position));
+                Log.v("tag", String.format("onItemClick: %s", dateList.get(position)));
+                Log.v("tag", String.format("onItemClick: %s", get_id));
+
+                //mp3を取得
+                dateUrl = put.url(dateList.get(position));
+                Log.v("tag", String.format("onItemClick: %s", dateUrl));
+
+
+
+            }
+        });
+
+    }
+
+    /**
+     * URLをPlayActivityに引き渡す
+     */
+    public void allUrlIntent(){
+
+    }
+
     //名前をクリックした時に画面遷移
     private class allNameClick implements AdapterView.OnItemClickListener{
         @Override
         public void onItemClick(AdapterView<?>parent, View view, int position, long id){
             Intent intent = new Intent(AllActivity.this, PlayActivity.class);
-            intent.putExtra("URL:", dateUrl);
+            intent.putExtra("FROM AllActivity URL:", dateUrl);
             startActivity(intent);
         }
     }

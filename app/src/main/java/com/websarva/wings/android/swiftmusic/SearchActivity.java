@@ -84,12 +84,40 @@ public class SearchActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * データベースから名前のリストデータを受け取る
+     */
+    public void searchNameGet(){
+
+    }
+
+    /**
+     * 受け取ったデータをリスト化して表示
+     */
+    public void searchList(){
+
+    }
+
+    /**
+     * 名前をクリックされたらDBに名前を送り、戻り値としてURLを貰う
+     */
+    public void searchNameClick(){
+
+    }
+
+    /**
+     * URLをPlayActivityに引き渡す
+     */
+    public void searchUrlIntent(){
+
+    }
+
     //名前をクリックされた時に画面遷移
     private class searchNameClick implements AdapterView.OnItemClickListener{
         @Override
         public void onItemClick(AdapterView<?>parent, View view, int position, long id){
             Intent intent = new Intent(SearchActivity.this, PlayActivity.class);
-            intent.putExtra("URL:", dateUrl);
+            intent.putExtra("FROM SearchActivity URL:", dateUrl);
             startActivity(intent);
         }
     }

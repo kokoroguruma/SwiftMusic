@@ -42,6 +42,10 @@ public class PlayActivity extends AppCompatActivity {
 
     }
 
+    /**
+     *
+     * @param url
+     */
     public void playCreatePlayMusic(String url){ //urlを引っ張る　再生準備
         System.out.println(url);
         playMusic = new PlayMusic(url);
@@ -49,9 +53,9 @@ public class PlayActivity extends AppCompatActivity {
         _btHead.setEnabled(true);
         _btPlay.setEnabled(true);
         _btStop.setEnabled(true);
-
-
     }
+
+
     public void playPauseClick(){//停止ボタン(一時停止) メソッド
         _btStop.setOnClickListener(new View.OnClickListener(){
             @Override
